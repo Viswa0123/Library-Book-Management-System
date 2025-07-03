@@ -1,43 +1,44 @@
 import java.util.Scanner;
 
 public class LibraryIO {
-    private static final Scanner scanner = new Scanner(System.in);
+    private static final Scanner in = new Scanner(System.in);
+
+    public static void getWelcome() {
+        System.out.println("*********** Welcome to Library System ***********");
+    }
 
     public static void printMenu() {
-        System.out.println("\nWelcome to Library System");
-        System.out.println("1. Add Book");
-        System.out.println("2. View Books");
-        System.out.println("3. Borrow Book");
-        System.out.println("4. Return Book");
-        System.out.println("5. Exit");
+        System.out.println("""
+                \n1. Add Book\s
+                2. View Books\s
+                3. Borrow Book\s
+                4. Return Book\s
+                5. Exit
+                """);
     }
 
     public static int getChoice() {
         System.out.print("Enter your choice: ");
-        return scanner.nextInt();
+        return in.nextInt();
     }
 
     public static int getBookId(String action) {
         System.out.print("Enter Book ID to " + action + ": ");
-        return scanner.nextInt();
+        return in.nextInt();
     }
 
     public static int readInt(String prompt) {
         System.out.print(prompt);
-        return scanner.nextInt();
+        return in.nextInt();
     }
 
-    public static String readLine(String prompt) {
+    public static String readString(String prompt) {
         System.out.print(prompt);
-        scanner.nextLine(); // to clear newline
-        return scanner.nextLine();
+        in.nextLine();
+        return in.next();
     }
 
     public static void printMessage(String message) {
         System.out.println(message);
-    }
-
-    public static void closeScanner() {
-        scanner.close();
     }
 }
